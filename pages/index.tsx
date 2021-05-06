@@ -5,11 +5,14 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const { signIn } = useContext(AuthContext);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+
+    setIsLoading(true);
 
     const data = {
       email,
@@ -17,6 +20,8 @@ export default function Home() {
     };
 
     await signIn(data);
+
+    setIsLoading(false);
   }
 
   return (
@@ -25,15 +30,17 @@ export default function Home() {
         type='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        placeholder='E-mail'
       />
 
       <input
         type='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        placeholder='Senha'
       />
 
-      <button type='submit'>Entrar</button>
+      <button type='submit'> {isLoading ? 'Entrando' : 'Entrar'} </button>
     </form>
   );
 }

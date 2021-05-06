@@ -1,11 +1,18 @@
+import Head from 'next/head';
 import { AuthProvider } from '../context/AuthContext';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
+    <>
+      <Head>
+        <title>Next Auth</title>
+      </Head>
+
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
+    </>
   );
 }
 
