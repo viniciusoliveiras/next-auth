@@ -7,7 +7,8 @@ export default function Dashboard() {
   return (
     <>
       <div className={styles.container}>
-        <h1>dashboard: {user?.email}</h1>
+        <h1>DASHBOARD</h1>
+        <h2>E-mail: {user?.email}</h2>
       </div>
     </>
   );
