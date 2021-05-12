@@ -16,8 +16,22 @@ export default function Dashboard() {
   return (
     <>
       <div className={styles.container}>
-        <h1>DASHBOARD</h1>
-        <h2>E-mail: {user?.email}</h2>
+        <div className={styles.content}>
+          <h1>DASHBOARD</h1>
+
+          <h2>
+            E-mail: <span>{user?.email}</span>
+          </h2>
+          <h2>
+            Permissões: <span>{user?.permissions[0]}</span> /{' '}
+            <span>{user?.permissions[1]}</span> /{' '}
+            <span>{user?.permissions[2]}</span>
+          </h2>
+
+          <h2>
+            Cargos: <span>{user?.roles}</span>
+          </h2>
+        </div>
       </div>
     </>
   );

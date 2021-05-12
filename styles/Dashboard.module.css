@@ -1,9 +1,28 @@
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
   height: 100vh;
   flex-direction: column;
   background-color: rgba(31, 29, 29, 0.761);
+  color: white;
+}
+
+.content {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  flex: 1;
+}
+
+.content h1 {
+  margin-bottom: 5rem;
+}
+
+.content h2 {
+  color: rgb(91, 218, 66);
+}
+
+.content span {
   color: white;
 }
