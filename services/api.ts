@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { parseCookies, setCookie } from 'nookies';
+import { signOut } from '../context/AuthContext';
 
 let cookies = parseCookies();
 let isRefresing = false;
@@ -80,8 +81,10 @@ api.interceptors.response.use(
           });
         });
       } else {
-        //  deslogar o usuario
+        signOut();
       }
     }
+
+    return Promise.reject(error);
   }
 );
