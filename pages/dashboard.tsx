@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { Can } from '../components/Can';
 
 import { AuthContext } from '../context/AuthContext';
-import { useCan } from '../hooks/useCan';
 import { setupAPIClient } from '../services/api';
 import { api } from '../services/apiClient';
-import styles from '../styles/Dashboard.module.css';
 import { withSSRAuth } from '../utils/withSSRAuth';
+import { Can } from '../components/Can';
+import styles from '../styles/Dashboard.module.css';
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
@@ -39,6 +38,9 @@ export default function Dashboard() {
 
 export const getServerSideProps = withSSRAuth(async (ctx) => {
   const apiClient = setupAPIClient(ctx);
+  const { data } = await apiClient.get('/me');
+
+  console.log(data);
 
   return {
     props: {},
