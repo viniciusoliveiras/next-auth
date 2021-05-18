@@ -15,7 +15,11 @@
   flex: 1;
 }
 
-.content h1 {
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 5rem;
 }
 
@@ -25,4 +29,19 @@
 
 .content span {
   color: white;
+}
+
+.content button {
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: rgb(91, 218, 66);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.content button:hover,
+.content a:hover {
+  filter: brightness(0.9);
 }

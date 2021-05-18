@@ -8,7 +8,7 @@ import { Can } from '../components/Can';
 import styles from '../styles/Dashboard.module.css';
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
+  const { user, signOut } = useContext(AuthContext);
 
   useEffect(() => {
     api
@@ -21,14 +21,19 @@ export default function Dashboard() {
     <>
       <div className={styles.container}>
         <div className={styles.content}>
-          <h1>DASHBOARD</h1>
+          <div className={styles.header}>
+            <h1>DASHBOARD</h1>
+            <button onClick={signOut}>Sair</button>
+          </div>
 
           <h2>
             Usuário: <span>{user?.email}</span> | <span>{user?.roles}</span>
           </h2>
 
           <Can permissions={['metrics.list']}>
-            <h2>Métricas</h2>
+            <a href='/metrics'>
+              <h2>Métricas</h2>
+            </a>
           </Can>
         </div>
       </div>
